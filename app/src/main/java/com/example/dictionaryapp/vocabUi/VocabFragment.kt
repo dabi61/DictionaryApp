@@ -1,19 +1,16 @@
-package com.example.dictionaryapp.VocabUi
+package com.example.dictionaryapp.vocabUi
 
-import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dictionaryapp.ActivityUi.MainActivity
-import com.example.dictionaryapp.MyInterface.HanTuClick
+import com.example.dictionaryapp.ProfileFragment
+import com.example.dictionaryapp.activityUi.MainActivity
+import com.example.dictionaryapp.myInterface.HanTuClick
 import com.example.dictionaryapp.R
 import com.example.dictionaryapp.adapter.HanTuAdapter
 import com.example.dictionaryapp.database.dictionary.DictionaryDao
@@ -24,18 +21,26 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.FileOutputStream
-import java.io.IOException
 
-
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 class VocabFragment : Fragment(), HanTuClick {
     lateinit var listHanTu : MutableList<HanTu>
     lateinit var adapterHanTu: HanTuAdapter
     private  lateinit var dictionaryDao: DictionaryDao
     private var coroutineScope = CoroutineScope(Dispatchers.IO)
     private lateinit var binding: FragmentVocabBinding
+
+    private var param1: String? = null
+    private var param2: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
     }
 
     override fun onCreateView(
@@ -96,7 +101,7 @@ class VocabFragment : Fragment(), HanTuClick {
 
     override fun onHanTuClick(hantu: HanTu) {
         val detailVocabFragment = DetailVocabFragment.newInstance(hantu)
-        (context as MainActivity).supportFragmentManager.beginTransaction()
+        requireActivity().supportFragmentManager.beginTransaction()
             .add(R.id.fl_main, detailVocabFragment)
             .addToBackStack(null)
             .commit()
@@ -109,6 +114,15 @@ class VocabFragment : Fragment(), HanTuClick {
                 adapterHanTu.notifyDataSetChanged()
             }
         }
+    }
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            ProfileFragment().apply {
+                arguments = Bundle().apply {
+
+                }
+            }
     }
 
 }

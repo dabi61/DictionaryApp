@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.dictionaryapp.ProfileFragment
 import com.example.dictionaryapp.SearchFragment
-import com.example.dictionaryapp.VocabUi.VocabFragment
+import com.example.dictionaryapp.vocabUi.VocabFragment
 
 class ViewPagerAdapter(FragmentActivity: FragmentActivity) : FragmentStateAdapter(FragmentActivity) {
     override fun getItemCount(): Int = 3

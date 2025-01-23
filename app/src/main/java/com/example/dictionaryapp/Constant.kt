@@ -1,5 +1,5 @@
 package com.example.dictionaryapp
 
-object Constance {
+object Constant {
     const val DATABASE_NAME = "dictionary.db"
 }

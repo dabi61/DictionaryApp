@@ -5,18 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityUi.MainActivity">
+    tools:context=".activityUi.MainActivity">
 
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <!-- ViewPager2 -->
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/bn_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+        </androidx.viewpager2.widget.ViewPager2>
 
         <!-- Bottom Navigation -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -30,10 +30,12 @@
             app:menu="@menu/bottom_nav_menu"
             app:itemActiveIndicatorStyle="@null"
             app:itemIconSize="32dp"
-            app:itemBackground="@android:color/transparent"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            app:itemBackground="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
     <FrameLayout
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

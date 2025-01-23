@@ -1,4 +1,4 @@
-package com.example.dictionaryapp.VocabUi
+package com.example.dictionaryapp.vocabUi
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.dictionaryapp.R
 import com.example.dictionaryapp.databinding.FragmentDetailVocabBinding
 import com.example.dictionaryapp.model.HanTu
 
@@ -48,7 +47,6 @@ class DetailVocabFragment() : Fragment() {
     }
 
     companion object {
-        // Hàm newInstance để nhận tham số và khởi tạo Fragment
         fun newInstance(hantu : HanTu): DetailVocabFragment {
             val fragment = DetailVocabFragment()
             val args = Bundle()

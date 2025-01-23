@@ -5,10 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dictionaryapp.ActivityUi.MainActivity
-import com.example.dictionaryapp.MyInterface.HanTuClick
-import com.example.dictionaryapp.R
-import com.example.dictionaryapp.VocabUi.DetailVocabFragment
+import com.example.dictionaryapp.myInterface.HanTuClick
 import com.example.dictionaryapp.databinding.LayoutHantuItemBinding
 import com.example.dictionaryapp.model.HanTu
 

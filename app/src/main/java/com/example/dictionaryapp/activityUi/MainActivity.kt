@@ -1,6 +1,7 @@
-package com.example.dictionaryapp.ActivityUi
+package com.example.dictionaryapp.activityUi
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,8 +24,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+                insets
+            }
+            else {
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+                insets
+            }
         }
         window.navigationBarColor = ContextCompat.getColor(this, R.color.nav_bar)
         window.statusBarColor = ContextCompat.getColor(this, R.color.body_space)

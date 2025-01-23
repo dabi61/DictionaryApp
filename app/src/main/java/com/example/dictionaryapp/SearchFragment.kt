@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.transition.Visibility
-import com.example.dictionaryapp.database.dictionary.DictionaryDao
 import com.example.dictionaryapp.database.dictionary.DictionaryDatabase
 import com.example.dictionaryapp.database.dictionary.TranslateDao
 import com.example.dictionaryapp.databinding.FragmentSearchBinding
@@ -50,7 +48,7 @@ class SearchFragment : Fragment() {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 coroutineScope.launch {
-                    val word = translateDao.TranslateVT(s.toString(), s.toString())
+                    val word = translateDao.translateVT(s.toString(), s.toString())
                     if(word != null)
                     {
                         withContext(Dispatchers.Main) {

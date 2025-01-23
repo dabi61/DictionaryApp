@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.dictionaryapp.Constance.DATABASE_NAME
+import com.example.dictionaryapp.Constant.DATABASE_NAME
 import com.example.dictionaryapp.model.HanTu
 import com.example.dictionaryapp.model.VietTrung
 

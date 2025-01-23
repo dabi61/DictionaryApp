@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VocabUi.DetailVocabFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/body_space">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_heading"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/nav_bar"
+            >
+
+            <TextView
+                android:id="@+id/tv_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_back"
+                android:layout_marginStart="10dp"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:text="一"
+                android:visibility="visible"/>
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_back"
+                android:visibility="visible"
+                app:tint="@color/white" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_han"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_mean"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_viet"
+            android:background="@color/body_space"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="140sp"
+            android:text="一"/>
+
+        <TextView
+                android:id="@+id/tv_viet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cl_heading"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:text="nhất"/>
+
+            <TextView
+                android:id="@+id/tv_pinyin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/tv_viet"
+                app:layout_constraintBottom_toBottomOf="@id/tv_viet"
+                app:layout_constraintStart_toEndOf="@id/tv_viet"
+                android:layout_marginStart="5dp"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:text="(yi1)"/>
+
+        <TextView
+            android:id="@+id/tv_mean"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_han"
+            app:layout_constraintStart_toStartOf="@+id/tv_viet"
+            app:layout_constraintStart_toEndOf="@id/tv_han"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="\n\t1. Một, là số đứng đầu các số đếm. Phàm vật gì chỉ có một đều gọi là Nhất cả.\n\t2. Cùng. Như sách Trung Dung 中庸 nói. Cập kì thành công nhất dã 及其成工一也 nên công cùng như nhau vậy. \n\t3. Dùng về lời nói hoặc giả thế chăng. Như vạn nhất 萬一 muôn một, nhất đán 一旦 một mai, v.v. \n\t4. Bao quát hết thẩy. Như nhất thiết 一切 hết thẩy, nhất khái 一概 một mực như thế cả, v.v. \n\t5. Chuyên môn về một mặt. Như nhất vị 一味 một mặt, nhất ý 一意 một ý, v.v."
+            android:ellipsize="end"
+            android:scrollHorizontally="false"
+            />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

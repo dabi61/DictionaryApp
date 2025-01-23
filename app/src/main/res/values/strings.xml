@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DictionaryApp</string>
+    <string name="profile">Profile</string>
+    <string name="search">Search</string>
+    <string name="vocab">Vocab</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_search">Search...</string>
+    <string name="translate_here">Translate Here!</string>
+
+</resources>

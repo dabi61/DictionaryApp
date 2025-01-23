@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/i_vocab"
+        android:icon="@drawable/ic_vocab"
+        android:title="@string/vocab"
+        app:itemRippleColor="@null"/>
+    <item
+        android:id="@+id/i_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        android:background="@android:color/transparent"/>
+    <item
+        android:id="@+id/i_profile"
+        android:icon="@drawable/ic_person"
+        android:title="@string/profile"
+        android:background="?android:attr/selectableItemBackground"/>
+</menu>

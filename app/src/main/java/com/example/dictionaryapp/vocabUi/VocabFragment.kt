@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dictionaryapp.ProfileFragment
 import com.example.dictionaryapp.activityUi.MainActivity
@@ -17,7 +18,6 @@ import com.example.dictionaryapp.database.dictionary.DictionaryDao
 import com.example.dictionaryapp.database.dictionary.DictionaryDatabase
 import com.example.dictionaryapp.databinding.FragmentVocabBinding
 import com.example.dictionaryapp.model.HanTu
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -28,7 +28,6 @@ class VocabFragment : Fragment(), HanTuClick {
     lateinit var listHanTu : MutableList<HanTu>
     lateinit var adapterHanTu: HanTuAdapter
     private  lateinit var dictionaryDao: DictionaryDao
-    private var coroutineScope = CoroutineScope(Dispatchers.IO)
     private lateinit var binding: FragmentVocabBinding
 
     private var param1: String? = null
@@ -73,7 +72,7 @@ class VocabFragment : Fragment(), HanTuClick {
                 // Không cần làm gì ở đây
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                coroutineScope.launch {
+                lifecycleScope.launch(Dispatchers.IO) {
                     val listDictionary = dictionaryDao.getListNote(s.toString(), s.toString())
                     withContext(Dispatchers.Main) {
                         adapterHanTu.updateData(listDictionary)
@@ -107,7 +106,7 @@ class VocabFragment : Fragment(), HanTuClick {
             .commit()
     }
     private fun loadData(dictionaryDao: DictionaryDao) {
-        coroutineScope.launch {
+        lifecycleScope.launch(Dispatchers.IO) {
             val listDictionary = dictionaryDao.getAllDictionary()
             listHanTu.addAll(listDictionary)
             withContext(Dispatchers.Main) {
